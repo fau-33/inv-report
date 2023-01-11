@@ -32,3 +32,25 @@ function colorir() {
 }
 const buttao = document.getElementById('button-random-color');
 buttao.addEventListener('click', colorir);
+
+function colorChanged() {
+  const corKlique = document.getElementsByClassName('selected')[0];
+  const corSelecionada = corKlique.style.backgroundColor;
+  window.event.target.style.backgroundColor = corSelecionada;
+}
+
+const divPai = document.getElementById('pixel-board');
+divPai.style.backgroundColor = '5px solid black';
+divPai.style.width = '250px';
+for (let index = 0; index < 25; index += 1) {
+  const divFilho = document.createElement('div');
+  divFilho.style.backgroundColor = 'white';
+  divFilho.style.height = '40px';
+  divFilho.style.width = '40px';
+  divFilho.style.border = '1px solid black';
+  divFilho.className = 'pixel';
+  divFilho.addEventListener('click', colorChanged);
+  divPai.appendChild(divFilho);
+  divFilho.style.display = 'inline-block';
+  divFilho.style.margin = '3px';
+}
