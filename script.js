@@ -54,3 +54,23 @@ for (let index = 0; index < 25; index += 1) {
   divFilho.style.display = 'inline-block';
   divFilho.style.margin = '3px';
 }
+
+const selectedUm = document.getElementsByClassName('selected');
+const palettaDeCores = document.getElementById('color-palette');
+paletaDeCores.addEventListener('click', mover);
+function mover() {
+  if (window.event.target.classList.contains('color')) {
+    const preveSelecionada = document.getElementsByClassName('selected')[0];
+    preveSelecionada.classList.remove('selected');
+    window.event.target.classList.add('selected'); // anotar esse evento
+  }
+}
+function salvarandoPaleta() {
+  localStorage.setItem('colorPalette', paletaDeCores.innerHTML);
+}
+function savede() {
+  if (localStorage.getItem('colorPalette')) {
+    paletaDeCores.innerHTML = localStorage.getItem('colorPalette');
+  }
+}
+window.addEventListener('onload', savede());
