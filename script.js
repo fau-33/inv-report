@@ -74,3 +74,17 @@ function savede() {
   }
 }
 window.addEventListener('onload', savede());
+
+function botaoLimpar() {
+  // criar function limpar
+  const botao = document.getElementById('clear-board'); // captura o botao de limpar
+  botao.addEventListener('click', () => {
+    // cria evento de click associado ao botao de limpar
+    const limpar = document.getElementsByClassName('pixel'); // representa cada elemento do grid
+    for (let index = 0; index < limpar.length; index += 1) {
+      limpar[index].style.backgroundColor = 'white';
+    }
+    // limpar.style.backgroundColor = "rgb(254, 254, 254)";
+  });
+}
+botaoLimpar();
